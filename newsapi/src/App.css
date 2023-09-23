@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 100;
+}
+
+header {
+  background-color: black;
+  color:aliceblue;
+  padding: 30px;
+  text-align: center;
+  font-size: 25px;
+}
+
+#buttonsflag {
+  margin-top: 1%;
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+}
+
+button {
+  background-color: white;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+#lastnotices {
+  font-size: 30px;
+  margin-bottom: 15%;
+  margin: 65px;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.wallpaper {
+  width: 90vh;
+  justify-content: center;
+}
+label {
+  font-size: 20px;
+}
+h2 {
+  text-align: center;
+}
+#boxcard{
+  padding: 10px 30px 20px 10px;
+  margin-top: 15px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 15px;
+  border-top: 2px solid black;
+}
+#boxcard h2{
+  font-size: 27px;
+}
+#boxcard h3 {
+  font-size: 15px;
+  color: rgb(81, 73, 73);
+}
+#boxcard h6{
+  font-size: 12px;
+  color: rgb(81, 73, 73);
+}
+
+#vermais{
+  background-color: black;
+  color: white;
+  padding:10px;
+  border-radius: 10px;
+}
+#vermais:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+#spinner {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+  height: 70px;
+  width: 70px;
+  border: 6px solid;
+  border-color: black transparent black transparent;
+  border-radius: 50%;
+  animation: spin 1.3s ease infinite;
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 1070px) {
+  em {
+    font-size: 30px;
+  }
+  label{
+    margin-top: 1%;
+    font-size: 25px;
+  }
+  .lastnotices {
+    font-size: 27px;
+  }
+  #boxcard h2 {
+    font-size: 30px;
+  }
+  #boxcard h3 {
+    font-size: 20px;
+  }
+  #boxcard h6 {
+    font-size: 15px;
+  }
+  #boxcard button {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 570) {
+  #lastnotices{
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 406px) {
+  em {
+    font-size: 17px;
+  }
+  label {
+    font-size: 15px;
+  }
+  #buttonsflag {
+    gap:calc(5%);
+  }
+  .photo {
+    width: 25;
+    height: 20;
+  }
+  button {
+    padding: 0;
+  }
+  #boxcard h2{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 320px) {
+  label {
+    font-size: 10px;
+  }
+  #boxcard h2{
+    font-size: 20px;
+  }
+  #boxcard h3{
+    font-size: 12px;
+    color: rgb(81, 73, 73);
+  }
+  #boxcard h6{
+    font-size: 9px;
+    color: rgb(81, 73, 73);
+  }
+}
