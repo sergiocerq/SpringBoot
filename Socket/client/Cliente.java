@@ -13,7 +13,7 @@ public class Cliente {
 		PrintWriter escrever = new PrintWriter(cliente.getOutputStream(), true);
 		Scanner ler = new Scanner(cliente.getInputStream());
 			
-		escrever.println("TESTANDO");
+		escrever.println("Hello World!");
 
 		System.out.println(ler.nextLine());
 		
