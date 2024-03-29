@@ -1,4 +1,4 @@
-package org.applications.beanscope.entities;
+package org.applications.beanscope.lesson1.entities;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;

@@ -1,16 +1,16 @@
-package org.applications.beanscope;
+package org.applications.beanscope.lesson1;
 
-import org.apache.catalina.core.ApplicationContext;
-import org.applications.beanscope.entities.ContentBasedFilter;
-import org.applications.beanscope.entities.Movie;
+import org.applications.beanscope.lesson1.entities.ContentBasedFilter;
+import org.applications.beanscope.lesson1.entities.Movie;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-@SpringBootApplication
+
 //Application context that has a bean with a singleton scope (1 per application),
 //but its dependencies have the prototype scope (1+ per application).
 //The ContentBasedFilter has singleton, but the movies of the content-based-filter have prototype scope.
+@SpringBootApplication
 public class BeanScopeApplication {
 
     public static void main(String[] args) {

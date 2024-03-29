@@ -1,6 +1,6 @@
-package org.applications.beanscope.entities;
+package org.applications.beanscope.lesson1.entities;
 
-import org.applications.beanscope.interfaces.Filter;
+import org.applications.beanscope.lesson1.interfaces.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

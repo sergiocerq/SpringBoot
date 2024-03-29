@@ -1,4 +1,4 @@
-package org.applications.beanscope.interfaces;
+package org.applications.beanscope.lesson1.interfaces;
 
 public interface Filter {
 
