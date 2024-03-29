@@ -26,6 +26,10 @@ public class Produtos {
         this.tipo = produtoDTO.tipo();
     }
 
+    public Produtos() {
+
+    }
+
     public Integer getId() {
         return id;
     }
@@ -40,5 +44,17 @@ public class Produtos {
 
     public String getTipo() {
         return tipo;
+    }
+
+    public void changeName(String nome) {
+        this.nome = nome;
+    }
+
+    public void changePrice(Double price) {
+        this.preco = price;
+    }
+
+    public void changeTypeProduct(String type) {
+        this.tipo = type;
     }
 }
