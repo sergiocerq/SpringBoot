@@ -6,5 +6,4 @@ public enum TiposProdutos {
     Eletrodomesticos,
     Vestimenta,
     Decoracao
-
 }
