@@ -23,6 +23,26 @@ public class SoftwareOfficeController {
         return softwareOfficeService.listSoftwareOffice();
     }
 
+    @GetMapping("/${name}")
+    public List<SoftwareOfficeDTO> listSoftwareOfficesContainingName(@PathVariable String name) {
+        return softwareOfficeService.listSoftwareOfficeContainingName(name);
+    }
+
+    @GetMapping("/frontend")
+    public List<SoftwareOfficeDTO> listSoftwareOfficeFrontend() {
+        return softwareOfficeService.listSoftwareOfficeByType("FRONT-END");
+    }
+
+    @GetMapping("/backend")
+    public List<SoftwareOfficeDTO> listSoftwareOfficeBackend() {
+        return softwareOfficeService.listSoftwareOfficeByType("BACK-END");
+    }
+
+    @GetMapping("/devops")
+    public List<SoftwareOfficeDTO> listSoftwareOfficeDevops() {
+        return softwareOfficeService.listSoftwareOfficeByType("DEVOPS");
+    }
+
     @PostMapping
     public ResponseEntity<SoftwareOfficeDTO> createSoftwareOffice(@RequestBody SoftwareOfficeDTO softwareOfficeDTO, UriComponentsBuilder uriComponentsBuilder) {
         return softwareOfficeService.createSoftwareOffice(softwareOfficeDTO, uriComponentsBuilder);
@@ -36,8 +56,8 @@ public class SoftwareOfficeController {
 
     @DeleteMapping("/${id}")
     @Transactional
-    public ResponseEntity<SoftwareOfficeDTO> deleteSoftwareOffice(@PathVariable Integer id, UriComponentsBuilder uriComponentsBuilder) {
-        return null;
+    public ResponseEntity<SoftwareOfficeDTO> deleteSoftwareOffice(@PathVariable Integer id) {
+        return softwareOfficeService.deleteSoftwareOffice(id);
     }
 
 }

@@ -5,5 +5,4 @@ public enum TypeOfSoftwareOffice {
     BACKEND,
     DEVOPS,
 
-
 }
