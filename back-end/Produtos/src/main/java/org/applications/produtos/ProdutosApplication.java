@@ -1,13 +1,13 @@
-package org.applications.autenticacaousername;
+package org.applications.produtos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AutenticacaoUsernameApplication {
+public class ProdutosApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AutenticacaoUsernameApplication.class, args);
+        SpringApplication.run(ProdutosApplication.class, args);
     }
 
 }

@@ -1,10 +1,10 @@
-package org.applications.autenticacaousername;
+package org.applications.produtos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AutenticacaoUsernameApplicationTests {
+class ProdutosApplicationTests {
 
     @Test
     void contextLoads() {
