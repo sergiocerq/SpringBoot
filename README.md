@@ -1,3 +1,7 @@
-# Portifólio Desenvolvimento Web 💻🗂️
+## Portifólio Back-end 
 
-Repositório dos meus projetos de desenvolvimento web, tanto do front-end com react e typescript, como no back-end com java e spring-boot!
+Projetos criados com o intuito de entender todo o funcionamento da parte do servidor da web com Java e Spring Boot
+- Operações do CRUD
+- Querys diferentes das operações básicas
+- Arquitetura de Microserviços
+- Autenticação com JWT e Login
