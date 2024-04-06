@@ -3,6 +3,7 @@ package org.applications.produtos.controllers;
 import org.applications.produtos.dtos.LoginDTO;
 import org.applications.produtos.dtos.ResponseDTO;
 import org.applications.produtos.entities.Usuario;
+import org.applications.produtos.services.AutenticacaoService;
 import org.applications.produtos.services.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,15 +23,19 @@ public class AutenticacaoController {
 
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private AutenticacaoService autenticacaoService;
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
-        var authenticationToken = new UsernamePasswordAuthenticationToken(loginDTO.email(), loginDTO.senha());
-        var authentication = authenticationManager.authenticate(authenticationToken);
-        System.out.println(loginDTO.email());
-        var token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        return autenticacaoService.login(loginDTO);
 
-        return ResponseEntity.ok(new ResponseDTO(token));
+        //var authenticationToken = new UsernamePasswordAuthenticationToken(loginDTO.email(), loginDTO.senha());
+        //var authentication = authenticationManager.authenticate(authenticationToken);
+        //System.out.println(loginDTO.email());
+        //var token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        //return ResponseEntity.ok(new ResponseDTO(token));
+
     }
 
     @PostMapping("/cadastrar")
