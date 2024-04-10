@@ -27,7 +27,7 @@ public class TokenService {
                       .withExpiresAt(gerarTempoExpiracaoToken())
                       .sign(algorithm);
         } catch (JWTCreationException exception) {
-            throw new RuntimeException("Erro ao gerar o token", exception);
+            throw new RuntimeException("Error while generating the token", exception);
         }
     }
 
@@ -36,7 +36,6 @@ public class TokenService {
     }
 
     public String validarToken(String token) {
-        System.out.println("Token no validarTOken: " + token);
         try {
             var algorithm = Algorithm.HMAC256(secret);
 
@@ -46,7 +45,7 @@ public class TokenService {
                       .verify(token)
                       .getSubject();
         } catch (JWTVerificationException exception) {
-            throw new RuntimeException("Erro na verificação do token", exception);
+            throw new RuntimeException("An error occurred verifying the token: ", exception);
         }
     }
 }

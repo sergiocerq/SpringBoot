@@ -30,7 +30,7 @@ public class Produto {
     private String nome;
     @DecimalMin("0")
     private Double preco;
-    @NotNull(message = "A quantidade não pode ser nula!")
+    @NotNull(message = "A quantidade não pode ser nula ou menor que 0!")
     @DecimalMin("0")
     private Integer quantidade;
 
