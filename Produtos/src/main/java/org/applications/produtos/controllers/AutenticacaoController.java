@@ -29,13 +29,6 @@ public class AutenticacaoController {
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
         return autenticacaoService.login(loginDTO);
-
-        //var authenticationToken = new UsernamePasswordAuthenticationToken(loginDTO.email(), loginDTO.senha());
-        //var authentication = authenticationManager.authenticate(authenticationToken);
-        //System.out.println(loginDTO.email());
-        //var token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
-        //return ResponseEntity.ok(new ResponseDTO(token));
-
     }
 
     @PostMapping("/cadastrar")

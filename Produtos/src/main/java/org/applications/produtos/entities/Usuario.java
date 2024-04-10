@@ -1,13 +1,13 @@
 package org.applications.produtos.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.applications.produtos.dtos.UsuarioDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity(name = "usuarios")
 public class Usuario implements UserDetails {
@@ -19,9 +19,24 @@ public class Usuario implements UserDetails {
     private String email;
     private String senha;
 
+    @ManyToMany
+    @JoinTable(
+            name = "role_users",
+            joinColumns = @JoinColumn(name = "usuarios_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
+    private List<Role> roles = new ArrayList<Role>();
+
+    public Usuario (UsuarioDTO usuarioDTO) {
+        this.senha = usuarioDTO.senha();
+        this.nome = usuarioDTO.nome();
+        this.email = usuarioDTO.email();
+        this.roles = usuarioDTO.roles().stream().map(Role::new).toList();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.roles;
     }
 
     @Override

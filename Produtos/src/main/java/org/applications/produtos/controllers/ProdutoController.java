@@ -7,6 +7,7 @@ import org.applications.produtos.repositories.ProdutoRepository;
 import org.applications.produtos.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class ProdutoController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<ProdutoDTO> apagarProduto(@PathVariable String id) {
         return produtoService.apagarProduto(id);
     }
