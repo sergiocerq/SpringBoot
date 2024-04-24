@@ -5,3 +5,4 @@ Projetos criados com o intuito de entender todo o funcionamento da parte do serv
 - Querys diferentes das operações básicas
 - Arquitetura de Microserviços
 - Autenticação com JWT e Login
+- Envio de email
