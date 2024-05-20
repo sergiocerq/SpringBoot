@@ -34,6 +34,10 @@ public class Usuario implements UserDetails {
         this.roles = usuarioDTO.roles().stream().map(Role::new).toList();
     }
 
+    public Usuario() {
+
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles;

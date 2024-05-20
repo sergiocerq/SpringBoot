@@ -1,5 +1,8 @@
 package org.applications.produtos.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.applications.produtos.dtos.LoginDTO;
 import org.applications.produtos.dtos.ResponseDTO;
 import org.applications.produtos.entities.Usuario;
@@ -20,23 +23,19 @@ public class AutenticacaoController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
     @Autowired
     private TokenService tokenService;
     @Autowired
     private AutenticacaoService autenticacaoService;
 
+    @Operation(description = "Faz a validação do login e, em caso de sucesso, retorna o token")
+    @ApiResponses( value = {
+            @ApiResponse(responseCode = "200", description = "Login realizado com sucesso. Retorna o token JWT."),
+            @ApiResponse(responseCode = "400", description = "Usuário não encontrado")
+    })
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
         return autenticacaoService.login(loginDTO);
     }
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity cadastrar(@RequestBody LoginDTO loginDTO) {
-        //var authenticationToken = new UsernamePasswordAuthenticationToken(loginDTO.email(), loginDTO.senha());
-        //var authentication = authenticationManager.authenticate(authenticationToken);
-       // var token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
-       // return ResponseEntity.ok(new ResponseDTO(token));
-        return null;
-    }
 }

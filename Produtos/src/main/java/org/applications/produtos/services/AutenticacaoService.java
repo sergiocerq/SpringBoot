@@ -1,5 +1,8 @@
 package org.applications.produtos.services;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.apache.coyote.Response;
 import org.applications.produtos.dtos.LoginDTO;
 import org.applications.produtos.dtos.ResponseDTO;
@@ -28,11 +31,17 @@ public class AutenticacaoService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Operation(description = "Busca as credenciais com base no login recebido")
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usuarioRepository.findByEmail(username);
     }
 
+    @Operation(description = "Faz a validação do login e, em caso de sucesso, retorna o token")
+    @ApiResponses( value = {
+            @ApiResponse(responseCode = "200", description = "Login realizado com sucesso. Retorna o token JWT."),
+            @ApiResponse(responseCode = "400", description = "Usuário não encontrado")
+    })
     public ResponseEntity login(LoginDTO loginDTO) {
         System.out.println(loginDTO.email());
         System.out.println(loginDTO.senha());

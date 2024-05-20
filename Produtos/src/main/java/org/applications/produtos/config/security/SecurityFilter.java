@@ -1,5 +1,8 @@
 package org.applications.produtos.config.security;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,6 +26,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     private TokenService tokenService;
 
+    @Operation(description = "Implementa o filter chain e faz a validação das credenciais e do token do usuário.")
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = this.recuperarToken(request);
@@ -37,6 +41,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    @Operation(description = "Faz a validação do token.")
     public String recuperarToken(HttpServletRequest request) {
         var token = request.getHeader("Authorization");
         if(token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
