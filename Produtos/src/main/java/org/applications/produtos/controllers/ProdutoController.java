@@ -25,7 +25,7 @@ public class ProdutoController {
     @Operation(description = "Lista todos os produtos cadastrados no banco de dados")
     @ApiResponses( value = {
             @ApiResponse(responseCode = "200", description = "Retorna todos os produtos."),
-            @ApiResponse(responseCode = "403", description = "Necessário fazer o Login para retornar todos os produtos")
+            @ApiResponse(responseCode = "403", description = "Necessário fazer o Login para listar todos os produtos")
     })
     @GetMapping
     public List<ProdutoDTO> listarProdutos() {
@@ -34,8 +34,8 @@ public class ProdutoController {
 
     @Operation(description = "Cadastra um produto no banco de dados")
     @ApiResponses( value = {
-            @ApiResponse(responseCode = "200", description = "Retorna todos os produtos."),
-            @ApiResponse(responseCode = "403", description = "Necessário fazer o Login para retornar todos os produtos")
+            @ApiResponse(responseCode = "200", description = "Retorna o produto cadastrado."),
+            @ApiResponse(responseCode = "403", description = "Necessário fazer o Login para cadastrar um produto!")
     })
     @PostMapping
     public ResponseEntity<ProdutoDTO> cadastrarProduto(@RequestBody ProdutoDTO produtoDTO) {
