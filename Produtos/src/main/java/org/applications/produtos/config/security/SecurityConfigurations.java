@@ -1,5 +1,6 @@
 package org.applications.produtos.config.security;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,7 @@ public class SecurityConfigurations {
     @Autowired
     private SecurityFilter securityFilter;
 
+    @Operation(description = "Implementação das rotas que não exigem token JWT.")
     @Bean
     public SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
@@ -39,11 +41,13 @@ public class SecurityConfigurations {
                 .build();
     }
 
+    @Operation(description = "Injeção de dependência do bean 'AuthenticationManager' na aplicação.")
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
 
+    @Operation(description = "Retorna a classe responsável pelo 'encrypt' e 'decrypt' da senha do login")
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
